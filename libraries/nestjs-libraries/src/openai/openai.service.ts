@@ -35,7 +35,7 @@ export class OpenaiService {
     return (
       (
         await openai.chat.completions.parse({
-          model: 'gpt-4.1',
+          model: 'gpt-4o-mini',
           messages: [
             {
               role: 'system',
@@ -56,7 +56,7 @@ export class OpenaiService {
     return (
       (
         await openai.chat.completions.parse({
-          model: 'gpt-4.1',
+          model: 'gpt-4o-mini',
           messages: [
             {
               role: 'system',
@@ -90,7 +90,7 @@ export class OpenaiService {
           ],
           n: 5,
           temperature: 1,
-          model: 'gpt-4.1',
+          model: 'gpt-4o-mini',
         }),
         openai.chat.completions.create({
           messages: [
@@ -106,7 +106,7 @@ export class OpenaiService {
           ],
           n: 5,
           temperature: 1,
-          model: 'gpt-4.1',
+          model: 'gpt-4o-mini',
         }),
       ])
     ).flatMap((p) => p.choices);
@@ -119,11 +119,11 @@ export class OpenaiService {
         try {
           return JSON.parse(
             '[' +
-              content
-                ?.slice(start + 1, end)
-                .replace(/\n/g, ' ')
-                .replace(/ {2,}/g, ' ') +
-              ']'
+            content
+              ?.slice(start + 1, end)
+              .replace(/\n/g, ' ')
+              .replace(/ {2,}/g, ' ') +
+            ']'
           );
         } catch (e) {
           return [];
@@ -144,7 +144,7 @@ export class OpenaiService {
           content,
         },
       ],
-      model: 'gpt-4.1',
+      model: 'gpt-4o-mini',
     });
 
     const { content: articleContent } = websiteContent.choices[0].message;
@@ -164,13 +164,12 @@ export class OpenaiService {
     const posts =
       (
         await openai.chat.completions.parse({
-          model: 'gpt-4.1',
+          model: 'gpt-4o-mini',
           messages: [
             {
               role: 'system',
-              content: `You are an assistant that take a social media post and break it to a thread, each post must be minimum ${
-                len - 10
-              } and maximum ${len} characters, keeping the exact wording and break lines, however make sure you split posts based on context`,
+              content: `You are an assistant that take a social media post and break it to a thread, each post must be minimum ${len - 10
+                } and maximum ${len} characters, keeping the exact wording and break lines, however make sure you split posts based on context`,
             },
             {
               role: 'user',
@@ -197,7 +196,7 @@ export class OpenaiService {
               return (
                 (
                   await openai.chat.completions.parse({
-                    model: 'gpt-4.1',
+                    model: 'gpt-4o-mini',
                     messages: [
                       {
                         role: 'system',
@@ -233,7 +232,7 @@ export class OpenaiService {
         const parse =
           (
             await openai.chat.completions.parse({
-              model: 'gpt-4.1',
+              model: 'gpt-4o-mini',
               messages: [
                 {
                   role: 'system',
