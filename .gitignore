@@ -63,4 +63,4 @@ uploads/*
 apps/backend/uploads/*
 apps/backend/undefined/*
 
-app/frontend/public/*
+apps/frontend/public/*
