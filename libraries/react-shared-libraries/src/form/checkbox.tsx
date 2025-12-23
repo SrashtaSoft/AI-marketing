@@ -46,16 +46,13 @@ export const Checkbox = forwardRef<
   return (
     <div className="flex gap-[10px] text-textColor">
       <div
-        style={{
-          backgroundColor: '#612ad5', border: '1px solid #612ad5'
-        }}
         ref={ref}
         {...disableForm ? {} : form.register(props.name!)}
         onClick={changeStatus}
         className={clsx(
-          'cursor-pointer rounded-[4px] select-none w-[24px] h-[24px] justify-center items-center flex text-white',
+          'cursor-pointer rounded-[4px] select-none w-[24px] h-[24px] justify-center items-center flex text-black ',
           variant === 'default' || !variant
-            ? 'bg-forth'
+            ? 'border-customColor1 border-2 border-solid bg-customColor2'
             : 'border-customColor1 border-2 border-solid bg-customColor2',
           className
         )}

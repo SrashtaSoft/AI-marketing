@@ -55,8 +55,9 @@ export const AddMember = () => {
         })
       ).json();
       if (values.sendEmail) {
+        copy(url);
         modals.closeAll();
-        toast.show('Invitation link sent');
+        toast.show('Invitation link sent and copied to clipboard');
         return;
       }
       copy(url);
@@ -140,10 +141,10 @@ export const TeamsComponent = () => {
   });
   const remove = useCallback(
     (toRemove: {
-        user: {
-          id: string;
-        };
-      }) =>
+      user: {
+        id: string;
+      };
+    }) =>
       async () => {
         if (
           !(await deleteDialog(
@@ -182,8 +183,8 @@ export const TeamsComponent = () => {
                 {p.role === 'USER'
                   ? 'User'
                   : p.role === 'ADMIN'
-                  ? 'Admin'
-                  : 'Super Admin'}
+                    ? 'Admin'
+                    : 'Super Admin'}
               </div>
               {+myLevel > +getLevel(p.role) ? (
                 <div className="flex-1 flex justify-end">
